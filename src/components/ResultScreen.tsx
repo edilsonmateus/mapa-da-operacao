@@ -152,7 +152,7 @@ export const ResultScreen: React.FC<ResultScreenProps> = ({ payload, onReset }) 
         </div>
 
         {/* Resumo SDR (Interno) */}
-        <div className="glass-panel rounded-3xl p-6 bg-white/20">
+        <div className="glass-panel rounded-3xl p-6 bg-white/20 no-print">
           <h3 className="text-xs font-bold text-violet-900/60 uppercase tracking-widest mb-1.5 flex items-center gap-1.5">
             <span className="w-2 h-2 rounded-full bg-violet-500 animate-ping" />
             Painel SDR (Inteligência Comercial)
@@ -177,7 +177,7 @@ export const ResultScreen: React.FC<ResultScreenProps> = ({ payload, onReset }) 
         </div>
       </div>
 
-      <div className="flex flex-col sm:flex-row gap-4 items-center justify-center border-t border-violet-100/50 pt-8">
+      <div className="flex flex-col sm:flex-row gap-4 items-center justify-center border-t border-violet-100/50 pt-8 no-print">
         <a
           href="https://wa.me/5511999999999?text=Ol%C3%A1%2C%20gostaria%20de%20conversar%20sobre%20o%20diagn%C3%B3stico%20da%20minha%20opera%C3%A7%C3%A3o"
           target="_blank"
@@ -188,6 +188,12 @@ export const ResultScreen: React.FC<ResultScreenProps> = ({ payload, onReset }) 
           Agendar conversa com especialista
         </a>
         <button
+          onClick={() => window.print()}
+          className="px-6 py-4 bg-violet-600/10 hover:bg-violet-600/20 text-violet-900 rounded-full transition-all duration-300 text-sm font-semibold w-full sm:w-auto text-center hover:scale-[1.02]"
+        >
+          Baixar Diagnóstico (PDF)
+        </button>
+        <button
           onClick={onReset}
           className="px-6 py-4 bg-white/50 hover:bg-white/80 border border-violet-100/60 hover:border-violet-200 text-violet-900 rounded-full transition-all duration-300 text-sm font-medium w-full sm:w-auto text-center hover:scale-[1.02]"
         >
@@ -195,7 +201,7 @@ export const ResultScreen: React.FC<ResultScreenProps> = ({ payload, onReset }) 
         </button>
       </div>
 
-      <div className="mt-8 text-center">
+      <div className="mt-8 text-center no-print">
         <p className="text-[11px] text-violet-900/40 font-light">
           Nota: O payload estruturado final foi impresso no console do navegador para validação técnica da Fase 3.
         </p>
